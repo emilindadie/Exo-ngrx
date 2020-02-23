@@ -1,0 +1,23 @@
+.app-header {
+    background-color: black;
+    padding: 15px;
+    &-link {
+      color: white;
+      margin-right: 10px;
+    }
+
+    display: flex;
+    flex-direction: row;
+    form {
+        right: 8px;
+        position: absolute;
+    }
+
+    .nav a{
+        cursor: pointer;
+    }
+    .is-active {
+        color: orange;
+    }
+}
+  

@@ -1,0 +1,10 @@
+button {
+    background-color: black;
+    padding: 8px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
