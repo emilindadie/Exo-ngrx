@@ -23,7 +23,10 @@ export class BlogComponent implements OnInit, OnDestroy {
     this.loadDefaultPosts();
     this.postsSubscription = this.changeCategoryEffects.loadPosts$.pipe(switchMap(res => {
       return this.blogService.getPosts(res.payload).pipe(catchError(this.handlePostsError))
-    })).subscribe(posts => this.posts = posts);
+    })).subscribe(posts => {
+      this.store.dispatch({type: BlogActionTypes.LoadPostsSuccess});
+      this.posts = posts
+    });
   }
 
   handlePostsError(error){

@@ -8,13 +8,17 @@ export const initialState : BlogState = {
 
 export function blogReducer(state: BlogState = initialState, action: BlogAction): BlogState {
     switch (action.type) {
+        case BlogActionTypes.ChangeAppCategory:
+            return {
+                category: action.payload
+            };
         case BlogActionTypes.LoadPosts:
             return {
                 category: action.payload
             };
-        case BlogActionTypes.ChangeAppCategory:
+        case BlogActionTypes.LoadPostsSuccess:
             return {
-                category: action.payload
+                category: state.category
             };
         case BlogActionTypes.LoadPostsfail:
             return {
