@@ -11,4 +11,3 @@ export class BlogAction implements Action {
     readonly type;
     payload: any;
 }
-  

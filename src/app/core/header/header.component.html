@@ -3,8 +3,8 @@
         <a class="app-header-link" [routerLink]="['/home']" routerLinkActive="is-active">Home</a>
         <a class="app-header-link" [routerLink]="['/blog']" routerLinkActive="is-active">Blog</a>
     </div>
-    <form [formGroup]="form">
-        <select id="cars" formControlName="state">
+    <form [formGroup]="form" *ngIf="form">
+        <select formControlName="state">
             <option *ngFor="let category of POST_CATEGORIES" [ngValue]="category">{{ category }}</option>
         </select>
     </form>

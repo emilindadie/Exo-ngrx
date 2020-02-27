@@ -5,8 +5,10 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { blogReducer } from './shared/blog/reducers/blog.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { ChangeCategoryEffects } from './shared/blog/effects/change-category.effect';
+import { BlogEffects } from './shared/blog/effects/blog.effect';
 import { CoreModule } from './core/core.module';
+import { environment } from 'src/environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,11 @@ import { CoreModule } from './core/core.module';
     HttpClientModule,
     CoreModule,
     StoreModule.forRoot({ blog: blogReducer }),
-    EffectsModule.forRoot([ChangeCategoryEffects])
+    EffectsModule.forRoot([BlogEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
